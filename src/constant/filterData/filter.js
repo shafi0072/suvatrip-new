@@ -41,41 +41,7 @@ export const filter_data = [
       title: "Price per night",
       custom: true,
       suggestedData: [
-        {
-          title: "$ 0 - $ 2000",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
-        {
-          title: "$ 2000 - $ 3500",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
-        {
-          title: "$ 2000 - $ 3500",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
-        {
-          title: "$ 2000 - $ 3500",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
-        {
-          title: "$ 2000 - $ 3500",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
+       
       ],
     },
   },

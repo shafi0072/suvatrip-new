@@ -3,6 +3,7 @@ import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import { useEffect } from "react";
 
 const mapStyles = {
+  width:'86%',
   height: "100%",
 };
 
@@ -36,8 +37,8 @@ const Index = ({ google, stores }) => {
   }, []);
 
   return (
-    <div>
-      <div style={{ width: "85%", height: "500px", position: "relative" }}>
+ 
+      <div style={{ width: "90%",  }}>
         <div className="mw-full">
           <Map
             google={google}
@@ -60,7 +61,7 @@ const Index = ({ google, stores }) => {
           </Map>
         </div>
       </div>
-    </div>
+ 
   );
 };
 
