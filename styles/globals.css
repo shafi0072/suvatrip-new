@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+.card-img {
+  text-align: center;
+  margin-top: 10px;
+  width: 90%;
+}
+.card-discount {
+  position: absolute;
+  left: 78%;
+  top: 4%;
+  background-color: #fff;
+  border-radius: 25px;
+}
+.discount-offer {
+  font-size: 14px;
+  text-align: center;
+  height: 23px;
+  width: 62px;
+}
+
+.header_background {
+  background-image: linear-gradient(rgb(0 0 0 / 49%), rgb(0 0 0 / 69%)),
+    url("https://himalayantrekking.com/wp-content/uploads/2017/07/dhampus-sarangkot-1-3.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.is-visible {
+  opacity: 1;
+}
+.navbarMain {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+.backgroundNav {
+  background-color: rgba(43, 43, 43, 0.623);
+}
+.hoverCard {
+  transition: all 0.6s ease-in-out;
+}
+.hoverCard:hover {
+  transform: scale(1.1);
+  border-radius: 20%;
+}
+.appbar {
+  position: fixed;
+  top: 700px;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+.appbarHide {
+  display: none;
+}
+.phone-input-flag {
+  margin-right: 8px;
+  height: 24px;
+}
+
+.phone-input-icon {
+  margin-left: -24px;
+}
+
+.slick-prev:before {
+  content: "←";
+  background: #1f2937 !important;
+  border-radius: 10px !important;
+  /* width: 100px; */
+}
+
+.slick-next:before {
+  content: "←";
+  background: #1f2937 !important;
+  border-radius: 10px !important;
+  /* width: 100px; */
+}
+/* Define the main styles for the sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Define the styles for the button that toggles the sidebar */
+.toggle-sidebar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* Define the styles for the content inside the sidebar */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+@keyframes fade-in-top {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.listRithTop {
+  width: 85%;
+}
+.listRithTopMid {
+  width: 100%;
+}
+.categoryHover {
+  transition: all 0.3s ease-in-out;
+}
+.categoryHover:hover {
+  background-color: #111827;
+}
+.bookingTimeBackgroundd {
+  background-color: rgba(255, 255, 255, 0.575);
+}
+
+.notification {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.notification::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+
+/* Hide scrollbar for Firefox */
+.notification::-moz-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+
+/* Hide scrollbar for Edge and IE */
+.notification::-ms-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+
+.notificationList:hover {
+  color: white;
+}
+
+.custom_red_color {
+  background: linear-gradient(#ff5656, rgb(245, 23, 23)) !important;
+}
+
+.custom_green_color {
+  background: linear-gradient(#22c25d, rgb(4, 179, 4)) !important;
+}
+.custom_orange_color {
+  background: linear-gradient(orange, #f97316) !important;
+}
+.hoverPanel {
+  width: 85%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  animation: fade-in-top 1s forwards;
+}
+.hoverPanelMid {
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  animation: fade-in-top 1s forwards;
+}
+.hoverPanel:hover {
+  background-color: rgb(200, 222, 255);
+  border-radius: 8px;
+}
+
+.sidebar li:hover {
+  background-color: #ddd;
+}
+.tooltip {
+  border-radius: 0.25rem;
+  background: #26313c;
+  color: #fff;
+  padding: 1rem;
+  box-shadow: 15px 30px 40px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+.sidebar a {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Define the styles for the transition animation */
+.sidebar.active {
+  right: 0;
+}
+
+.toggle-sidebar.active {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 600px) {
+  .Overview {
+    width: 100%;
+  }
+}
+
+@keyframes dancing {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.dancing-label {
+  animation-name: dancing;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.dancing-label:hover {
+  animation-play-state: paused;
+}
