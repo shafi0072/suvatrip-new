@@ -1,17 +1,17 @@
 import React, { useCallback, useState } from "react";
-import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 import { useEffect } from "react";
 
 const mapStyles = {
-  width:'86%',
+  width: '86%',
   height: "100%",
 };
 
-const Index = ({ google, stores }) => {
+const Index = ({ google, stores, centere }) => {
   const [activeMarker, setActiveMarker] = useState({});
   const [mapCenter, setMapCenter] = useState({
-    lat: 37.7749,
-    lng: -122.4194,
+    lat:centere.lat,
+    lng:centere.lng,
   });
 
   const [zoom, setZoom] = useState(13);
@@ -20,7 +20,7 @@ const Index = ({ google, stores }) => {
     (props, marker, e) => {
       setActiveMarker(marker);
       setMapCenter(marker.position);
-      setZoom(16);
+      setZoom(20);
     },
     [activeMarker, zoom, mapCenter]
   );
@@ -37,31 +37,38 @@ const Index = ({ google, stores }) => {
   }, []);
 
   return (
- 
-      <div style={{ width: "90%",  }}>
-        <div className="mw-full">
-          <Map
-            google={google}
-            zoom={zoom}
-            style={mapStyles}
-            initialCenter={mapCenter}
-            center={stores[0] ? stores[0] : mapCenter}
-            // onCenterChanged={}
-          >
-            {stores?.map((store, index) => (
-              <Marker
-                key={index}
-                position={{
-                  lat: store.lat,
-                  lng: store.lng,
-                }}
-                onClick={onMarkerClick}
-              />
-            ))}
-          </Map>
-        </div>
+
+    <div style={{ width: "90%", }}>
+      <div className="mw-full">
+        <Map
+          google={google}
+          zoom={zoom}
+          style={mapStyles}
+          initialCenter={mapCenter}
+          center={mapCenter}
+        // onCenterChanged={}
+        >
+          {stores?.map((store, index) => (
+            <Marker
+              key={index}
+              position={{
+                lat: store.lat,
+                lng: store.lng,
+              }}
+              onClick={onMarkerClick}
+              icon={{
+                url: 'https://www.iconarchive.com/download/i57835/icons-land/vista-map-markers/Map-Marker-Marker-Outside-Pink.256.png', // Replace with the path to your custom icon
+                scaledSize: new window.google.maps.Size(40, 40), // Replace with the desired size of the icon
+                // You can also customize other properties like anchor, origin, and labelOrigin if needed
+              }}
+            />
+          ))}
+
+         
+        </Map>
       </div>
- 
+    </div>
+
   );
 };
 

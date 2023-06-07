@@ -210,6 +210,16 @@ body {
   opacity: 0;
   animation: fade-in-top 1s forwards;
 }
+.hoverForMapViewHotels{
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  animation: fade-in-top 1s forwards;
+}
+.hoverForMapViewHotels:hover {
+  background-color: rgb(200, 222, 255);
+  border-radius: 8px;
+}
 .hoverPanelMid {
   width: 100%;
   cursor: pointer;

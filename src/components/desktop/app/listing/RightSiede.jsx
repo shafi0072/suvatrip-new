@@ -192,7 +192,17 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
                     className="row  "
                     onClick={(e) => {
                       e.preventDefault();
-                      router.push(`/hotelList/HotelDetails/${items._id}`);
+                      router.push({
+                        pathname: `/hotelList/HotelDetails/${items._id}`,
+                        query: {
+                          adults: queryData?.adults,
+                          rooms: queryData?.rooms,
+                          children: queryData?.children,
+                          age: queryData?.age,
+                          checkIn: queryData?.checkIn,
+                          checkOut: queryData?.checkOut,
+                        },
+                      });
                     }}
                     style={{ width: "100%" }}
                   >
@@ -338,7 +348,20 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
       ) : checked && hotelData?.length > 0 ? (hotelData
         ?.sort((a, b) => a.bookings?.length - b?.bookings?.length)
         ?.map((items, index) => (
-          <div className="border-b pb-2">
+          <div className="border-b py-2 mt-2 hoverForMapViewHotels" onClick={(e) => {
+            e.preventDefault();
+            router.push({
+              pathname: `/hotelList/HotelDetails/${items._id}`,
+              query: {
+                adults: queryData?.adults,
+                rooms: queryData?.rooms,
+                children: queryData?.children,
+                age: queryData?.age,
+                checkIn: queryData?.checkIn,
+                checkOut: queryData?.checkOut,
+              },
+            });
+          }}>
             <div className="row">
               <div className="col-md-4">
                 <img
@@ -350,21 +373,21 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
                     objectFit: "cover",
                     width: "100%",
                   }}
-                  className={`${blur ? "blur-lg rounded-2" : "rounded-2"}`}
+                  className={`ml-2 ${blur ? "blur-lg rounded-2" : "rounded-2"}`}
                 />
               </div>
               <div className="col-md-8">
                 <h1 className="text-md font-bold">{items?.NameOfProperty}</h1>
                 <p className="text-sm text-blue-500 underline">{items?.StreetAddress},{items?.City}, {items?.Country}</p>
-                
+
                 <div className="mt-2">
-                  <span className="text-xl font-bold text-red-600">RS-{items?.rooms[0]?.priceCategory[0]?.Per_Night}</span>
+                  <span className="text-md font-bold text-red-600">RS-{items?.rooms[0]?.priceCategory[0]?.Per_Night}</span>
                   <del className="ml-2 text-md  text-gray-600 ">RS-{items?.rooms[0]?.priceCategory[0]?.Per_Night}</del>
                   <span className="ml-2 text-md text-orange-600">{items?.rooms[0]?.priceCategory[0]?.discount} % off</span>
                 </div>
                 <div className="mt-2">
                   <span className="text-sm text-gray-600">Per Night Cost</span>
-                  
+
                 </div>
               </div>
             </div>
