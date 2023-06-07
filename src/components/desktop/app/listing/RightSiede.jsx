@@ -18,6 +18,7 @@ import { useRouter } from "next/router";
 import { baseUrl } from "@/src/config/serverConfig";
 import Checkmark from "../../core/lib/checkMark/Checkmark";
 import screenSize from "../../core/lib/MediaQuery/ScreenSize";
+import BookingTimeThreeMobile from "../Landing/Home/Header/BookingTimeThreeMobile";
 
 const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
   const router = useRouter();
@@ -86,7 +87,6 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
           </div> */}
         </div>
       </div>}
-
       {!checked && hotelData?.length > 0 ? (
         hotelData
           ?.sort((a, b) => a.bookings?.length - b?.bookings?.length)
