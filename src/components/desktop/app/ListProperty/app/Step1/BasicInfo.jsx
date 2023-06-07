@@ -84,8 +84,9 @@ const BasicInfo = ({
               className="block w-100 py-2 px-2 text-gray-900 border border-gray-100 rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
               placeholder=" your property name "
             >
-              <option value="Hotel">Hotel</option>
+              
               <option value="Farm house">Farm house</option>
+              <option value="Hotel" selected>Hotel</option>
               <option value="Guest house">Guest house</option>
               <option value="Resort">Resort</option>
               <option value="Tent">Tent</option>
@@ -110,7 +111,7 @@ const BasicInfo = ({
               placeholder=" How many Rooms Do you Have "
             />
           </div>
-          <div className="col-md-4 mt-2">
+          {enhance?.category === "Hotel" && <div className="col-md-4 mt-2">
             <label htmlFor="Stars" className="text-md font-bold text-center">
               Stars ? <span className="text-red-500">*</span>
             </label>
@@ -127,7 +128,7 @@ const BasicInfo = ({
               <option value={4}>4 stars</option>
               <option value={5}>5 stars</option>
             </select>
-          </div>
+          </div>}
           <div className="col-md-4 mt-2">
             <label
               htmlFor="phoneNumber"
@@ -225,7 +226,8 @@ const BasicInfo = ({
               placeholder=" your country name "
             >
               {country?.map((item) => (
-                <option value={item?.name}>{item?.name}</option>
+                
+                <option value={item?.name} selected={item?.name === "Nepal" ? true : false}>{item?.name}</option>
               ))}
             </select>
           </div>
@@ -246,7 +248,7 @@ const BasicInfo = ({
 
           <div className="col-md-4 mt-2">
             <label htmlFor="postCode" className="text-md font-bold text-center">
-              Post/Zip Code <span className="text-red-500">*</span>
+              Post/Zip Code 
             </label>
             <input
               type="text"

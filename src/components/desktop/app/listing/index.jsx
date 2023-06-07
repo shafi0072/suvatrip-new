@@ -11,8 +11,8 @@ const index = ({ hotelData, lat, lng, address, queryData }) => {
   const resulation = screenSize("600px");
   const resulation2 = screenSize("1300px");
   const [mapMarks, setMapMarks] = useState([]);
-
-  const mapsMark = [{ lat: lat, lng: lng }];
+  const centere = { lat: lat, lng: lng }
+  const mapsMark = [];
   for (let i = 0; i < hotelData?.length; i++) {
     const mark = {
       lat: hotelData[i]?.mapUrl?.lat,
@@ -53,7 +53,7 @@ const index = ({ hotelData, lat, lng, address, queryData }) => {
           </div>
           {checked && (
             <div className="col-md-5">
-              <Maps stores={mapsMark} />
+              <Maps stores={mapsMark} centere={centere}/>
             </div>
           )}
         </div>

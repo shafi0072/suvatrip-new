@@ -18,6 +18,7 @@ import { useRouter } from "next/router";
 import { baseUrl } from "@/src/config/serverConfig";
 import Checkmark from "../../core/lib/checkMark/Checkmark";
 import screenSize from "../../core/lib/MediaQuery/ScreenSize";
+import BookingTimeThreeMobile from "../Landing/Home/Header/BookingTimeThreeMobile";
 
 const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
   const router = useRouter();
@@ -86,7 +87,6 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
           </div> */}
         </div>
       </div>}
-
       {!checked && hotelData?.length > 0 ? (
         hotelData
           ?.sort((a, b) => a.bookings?.length - b?.bookings?.length)
@@ -192,7 +192,17 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
                     className="row  "
                     onClick={(e) => {
                       e.preventDefault();
-                      router.push(`/hotelList/HotelDetails/${items._id}`);
+                      router.push({
+                        pathname: `/hotelList/HotelDetails/${items._id}`,
+                        query: {
+                          adults: queryData?.adults,
+                          rooms: queryData?.rooms,
+                          children: queryData?.children,
+                          age: queryData?.age,
+                          checkIn: queryData?.checkIn,
+                          checkOut: queryData?.checkOut,
+                        },
+                      });
                     }}
                     style={{ width: "100%" }}
                   >
@@ -338,7 +348,20 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
       ) : checked && hotelData?.length > 0 ? (hotelData
         ?.sort((a, b) => a.bookings?.length - b?.bookings?.length)
         ?.map((items, index) => (
-          <div className="border-b pb-2">
+          <div className="border-b py-2 mt-2 hoverForMapViewHotels" onClick={(e) => {
+            e.preventDefault();
+            router.push({
+              pathname: `/hotelList/HotelDetails/${items._id}`,
+              query: {
+                adults: queryData?.adults,
+                rooms: queryData?.rooms,
+                children: queryData?.children,
+                age: queryData?.age,
+                checkIn: queryData?.checkIn,
+                checkOut: queryData?.checkOut,
+              },
+            });
+          }}>
             <div className="row">
               <div className="col-md-4">
                 <img
@@ -350,21 +373,30 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
                     objectFit: "cover",
                     width: "100%",
                   }}
-                  className={`${blur ? "blur-lg rounded-2" : "rounded-2"}`}
+                  className={`ml-2 mt-3 ${blur ? "blur-lg rounded-2" : "rounded-2"}`}
                 />
               </div>
               <div className="col-md-8">
                 <h1 className="text-md font-bold">{items?.NameOfProperty}</h1>
                 <p className="text-sm text-blue-500 underline">{items?.StreetAddress},{items?.City}, {items?.Country}</p>
-                
+
+                <div class="flex items-center mt-2">
+                  <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                  <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">4.95 out of 5</p>
+                </div>
+
                 <div className="mt-2">
-                  <span className="text-xl font-bold text-red-600">RS-{items?.rooms[0]?.priceCategory[0]?.Per_Night}</span>
+                  <span className="text-md font-bold text-red-600">RS-{items?.rooms[0]?.priceCategory[0]?.Per_Night}</span>
                   <del className="ml-2 text-md  text-gray-600 ">RS-{items?.rooms[0]?.priceCategory[0]?.Per_Night}</del>
                   <span className="ml-2 text-md text-orange-600">{items?.rooms[0]?.priceCategory[0]?.discount} % off</span>
                 </div>
                 <div className="mt-2">
                   <span className="text-sm text-gray-600">Per Night Cost</span>
-                  
+
                 </div>
               </div>
             </div>
