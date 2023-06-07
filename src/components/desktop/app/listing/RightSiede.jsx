@@ -54,7 +54,7 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
 
   return (
     <div className="mb-3 mt-2">
-      <div className="d-flex justify-content-start">
+      {!checked && <div className="d-flex justify-content-start">
         <div className={resulationMd ? "listRithTopMid" : "listRithTop"}>
           <h1 className="text2xl font-bold uppercase mb-2">
             {address}: {hotelData?.length} place Founded
@@ -85,13 +85,9 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
             </ul>
           </div> */}
         </div>
-      </div>
-      {checked && (
-        <div className="mt-3 ">
-          <Maps stores={mapsMark} />
-        </div>
-      )}
-      {hotelData?.length > 0 ? (
+      </div>}
+
+      {!checked && hotelData?.length > 0 ? (
         hotelData
           ?.sort((a, b) => a.bookings?.length - b?.bookings?.length)
           ?.map((items, index) => (
@@ -231,9 +227,9 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
                             </span>
                           )}
                         </div>
-                        <button className="custom_green_color text-light px-2 py-1 rounded-full mt-3">
+                        {/* <button className="custom_green_color text-light px-2 py-1 rounded-full mt-3">
                           Free Cancellation Till 14 Aug 22
-                        </button>
+                        </button> */}
                         <div className="faselity mt-3">
                           <span className="">
                             <DirectionsCarFilledOutlinedIcon
@@ -339,7 +335,41 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
               </div>
             </>
           ))
-      ) : (
+      ) : checked && hotelData?.length > 0 ? (hotelData
+        ?.sort((a, b) => a.bookings?.length - b?.bookings?.length)
+        ?.map((items, index) => (
+          <div className="border-b pb-2">
+            <div className="row">
+              <div className="col-md-4">
+                <img
+                  src={items?.images[0]}
+                  alt=""
+                  style={{
+                    maxWidth: "100%",
+                    height: "100px",
+                    objectFit: "cover",
+                    width: "100%",
+                  }}
+                  className={`${blur ? "blur-lg rounded-2" : "rounded-2"}`}
+                />
+              </div>
+              <div className="col-md-8">
+                <h1 className="text-md font-bold">{items?.NameOfProperty}</h1>
+                <p className="text-sm text-blue-500 underline">{items?.StreetAddress},{items?.City}, {items?.Country}</p>
+                
+                <div className="mt-2">
+                  <span className="text-xl font-bold text-red-600">RS-{items?.rooms[0]?.priceCategory[0]?.Per_Night}</span>
+                  <del className="ml-2 text-md  text-gray-600 ">RS-{items?.rooms[0]?.priceCategory[0]?.Per_Night}</del>
+                  <span className="ml-2 text-md text-orange-600">{items?.rooms[0]?.priceCategory[0]?.discount} % off</span>
+                </div>
+                <div className="mt-2">
+                  <span className="text-sm text-gray-600">Per Night Cost</span>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        ))) : (
         <div>
           <div className="d-flex justify-content-center mt-3">
             <img

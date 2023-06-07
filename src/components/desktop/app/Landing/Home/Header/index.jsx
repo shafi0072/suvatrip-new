@@ -21,7 +21,7 @@ const index = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollValue, setScrollValue] = useState(0);
   const [backgroundImage, setBacgroundImage] = useState(
-    "https://himalayantrekking.com/wp-content/uploads/2017/07/dhampus-sarangkot-1-3.jpg"
+    "https://www.jeetbrothers.com/uploaded-files/category-banner/Family-Tour-Packages119.jpg"
   );
   const resulation = screenSize('600px')
   // state controller start
@@ -69,7 +69,7 @@ const index = () => {
     <div className={`fade-in mb-5 ${show ? "is-visible" : ""}`}>
       <div
         style={{
-          backgroundImage: `linear-gradient(rgb(251 32 32 / 39%), rgb(0 0 0 / 55%)), url(https://dadbloguk.com/wp-content/uploads/2018/09/shutterstock_286469927.jpg)`,
+          backgroundImage: `linear-gradient(rgb(251 32 32 / 39%), rgb(0 0 0 / 55%)), url(https://www.jeetbrothers.com/uploaded-files/category-banner/Family-Tour-Packages119.jpg)`,
           backgroundPosition: "center top",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",

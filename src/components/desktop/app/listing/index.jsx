@@ -4,11 +4,24 @@ import RightSiede from "./RightSiede";
 import { useState } from "react";
 import screenSize from "../../core/lib/MediaQuery/ScreenSize";
 import RightSiedeMobile from "./RightSiedeMobile";
+import Maps from "../../core/Maps";
 
 const index = ({ hotelData, lat, lng, address, queryData }) => {
   const [checked, setCheked] = useState(false);
   const resulation = screenSize("600px");
   const resulation2 = screenSize("1300px");
+  const [mapMarks, setMapMarks] = useState([]);
+
+  const mapsMark = [{ lat: lat, lng: lng }];
+  for (let i = 0; i < hotelData?.length; i++) {
+    const mark = {
+      lat: hotelData[i]?.mapUrl?.lat,
+      lng: hotelData[i]?.mapUrl?.lng,
+    };
+    mapsMark.push(mark);
+  }
+
+  console.log({ mapMarks });
 
   return (
     <div>
@@ -17,7 +30,7 @@ const index = ({ hotelData, lat, lng, address, queryData }) => {
           <div className={`${resulation ? "hidden" : "col-md-2 border-r"}`}>
             <Filter setCheked={setCheked} checked={checked} />
           </div>
-          <div className="col-md-10">
+          <div className={checked ? "col-md-4 border-r" : "col-md-10"}>
             {resulation ? (
               <RightSiedeMobile
                 checked={checked}
@@ -36,8 +49,13 @@ const index = ({ hotelData, lat, lng, address, queryData }) => {
               />
             )}
             {/* <RightSiede checked={checked} hotelData={hotelData} searchId={searchId} /> */}
-            {/* : resulation2 ? <RightSiedeMedium checked={checked} hotelData={hotelData} lat={lat} lng={lng} />  */}
+            
           </div>
+          {checked && (
+            <div className="col-md-5">
+              <Maps stores={mapsMark} />
+            </div>
+          )}
         </div>
       </div>
     </div>
