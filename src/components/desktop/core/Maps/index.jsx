@@ -2,18 +2,19 @@ import React, { useCallback, useState } from "react";
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 import { useEffect } from "react";
 
-const mapStyles = {
-  width: '86%',
-  height: "100%",
-};
 
-const Index = ({ google, stores, centere }) => {
+
+const Index = ({ google, stores, centere, width, height }) => {
+  // console.log({centere})
   const [activeMarker, setActiveMarker] = useState({});
   const [mapCenter, setMapCenter] = useState({
     lat:centere.lat,
     lng:centere.lng,
   });
-
+  const mapStyles = {
+    width: width,
+    height: height,
+  };
   const [zoom, setZoom] = useState(13);
 
   const onMarkerClick = useCallback(
