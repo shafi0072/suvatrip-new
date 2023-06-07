@@ -373,7 +373,7 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
                     objectFit: "cover",
                     width: "100%",
                   }}
-                  className={`ml-2 ${blur ? "blur-lg rounded-2" : "rounded-2"}`}
+                  className={`ml-2 mt-3 ${blur ? "blur-lg rounded-2" : "rounded-2"}`}
                 />
               </div>
               <div className="col-md-8">
