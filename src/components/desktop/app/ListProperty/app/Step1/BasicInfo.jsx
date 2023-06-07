@@ -107,7 +107,7 @@ const BasicInfo = ({
               required
               onChange={handleOnChange}
               className="block w-100 py-2 px-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder=" your property name "
+              placeholder=" How many Rooms Do you Have "
             />
           </div>
           <div className="col-md-4 mt-2">
@@ -142,7 +142,7 @@ const BasicInfo = ({
               required
               onChange={handleOnChange}
               className="block w-100 py-2 px-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder=" your property name "
+              placeholder=" Your Phone Number "
             />
           </div>
           <div className="col-md-4 mt-2">
@@ -159,7 +159,7 @@ const BasicInfo = ({
               name="alternativePhoneNumber"
               onChange={handleOnChange}
               className="block w-100 py-2 px-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder=" your property name "
+              placeholder=" Additional Phone Number "
             />
           </div>
           <div className="col-md-4 mt-2">
@@ -172,7 +172,7 @@ const BasicInfo = ({
               name="email"
               onChange={handleOnChange}
               className="block w-100 py-2 px-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder=" your property name "
+              placeholder=" enter your email "
             />
           </div>
         </div>
@@ -192,7 +192,7 @@ const BasicInfo = ({
               required
               onChange={handleOnChange}
               className="block w-100 py-2 px-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Your_Name"
+              placeholder="Your street address"
             />
           </div>
           <div className="col-md-4">
@@ -208,7 +208,7 @@ const BasicInfo = ({
               name="addressLine2"
               onChange={handleOnChange}
               className="block w-100 py-2 px-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder=" your property name "
+              placeholder=" address line 2 "
             />
           </div>
           <div className="col-md-4">
@@ -222,7 +222,7 @@ const BasicInfo = ({
               required
               onChange={handleOnChange}
               className="block w-100 py-2 px-2 text-gray-900 border border-gray-100 rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder=" your property name "
+              placeholder=" your country name "
             >
               {country?.map((item) => (
                 <option value={item?.name}>{item?.name}</option>
@@ -240,7 +240,7 @@ const BasicInfo = ({
               required
               onChange={handleOnChange}
               className="block w-100 py-2 px-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder=" your property name "
+              placeholder=" your city name "
             />
           </div>
 
@@ -254,7 +254,7 @@ const BasicInfo = ({
               name="postCode"
               onChange={handleOnChange}
               className="block w-100 py-2 px-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-100 sm:text-md focus:ring-blue-500 focus:border-blue-500"
-              placeholder=" your property name "
+              placeholder=" post/zip code "
             />
           </div>
 
