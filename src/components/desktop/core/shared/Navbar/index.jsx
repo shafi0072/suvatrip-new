@@ -52,7 +52,7 @@ const Index = () => {
     })
       .then((res) => res.json())
       .then((data) => setHotelInfo(data))
-      .catch((err) => {});
+      .catch((err) => { });
   }, [hotelInfo]);
 
   useEffect(() => {
@@ -112,11 +112,9 @@ const Index = () => {
   }, [notification]);
   return (
     <div
-      className={`${
-        isScrolled && router.pathname === "/" && "navbarMain bg-gray-800"
-      } ${router.pathname !== "/" && "navbarMain bg-light"} ${
-        isScrolled ? "sticky" : ""
-      }`}
+      className={`${isScrolled && router.pathname === "/" && "navbarMain bg-gray-800"
+        } ${router.pathname !== "/" && "navbarMain bg-light"} ${isScrolled ? "sticky" : ""
+        }`}
     >
       {!isScrolled && (
         <Disclosure as="nav" className="">
@@ -148,9 +146,8 @@ const Index = () => {
                     progress={progress}
                   />
                   <div
-                    className={`flex flex-1 items-center justify-center sm:items-stretch sm:justify-start ${
-                      screenSize("600px") ? "absolute right-4" : ""
-                    } `}
+                    className={`flex flex-1 items-center justify-center sm:items-stretch sm:justify-start ${screenSize("600px") ? "absolute right-4" : ""
+                      } `}
                   >
                     {progress < 50 && (
                       <a className="flex flex-shrink-0 items-center" href="/">
@@ -189,11 +186,10 @@ const Index = () => {
                                         className={classNames(
                                           item.current
                                             ? "custom_green_color text-white"
-                                            : ` ${
-                                                router.pathname !== "/"
-                                                  ? ""
-                                                  : "text-light"
-                                              } hover:custom_green_color hover:text-red-500 hover:underline`,
+                                            : ` ${router.pathname !== "/"
+                                              ? ""
+                                              : "text-light"
+                                            } hover:custom_green_color hover:text-red-500 hover:underline`,
                                           "px-3 py-2 rounded-md text-sm font-medium"
                                         )}
                                         aria-current={
@@ -211,11 +207,10 @@ const Index = () => {
                                         className={classNames(
                                           item.current
                                             ? "custom_green_color text-white"
-                                            : ` ${
-                                                router.pathname !== "/"
-                                                  ? ""
-                                                  : "text-light"
-                                              } hover:custom_green_color hover:text-white`,
+                                            : ` ${router.pathname !== "/"
+                                              ? ""
+                                              : "text-light"
+                                            } hover:custom_green_color hover:text-white`,
                                           "px-3 py-2 rounded-md text-sm font-medium"
                                         )}
                                       >
@@ -268,16 +263,14 @@ const Index = () => {
                                       href={item.href}
                                       className={classNames(
                                         item.current
-                                          ? `${
-                                              router.pathname !== "/"
-                                                ? "custom_red_color"
-                                                : "custom_green_color"
-                                            } text-white`
-                                          : ` ${
-                                              router.pathname !== "/"
-                                                ? ""
-                                                : "text-light"
-                                            } hover:custom_green_color hover:text-red-500 hover:underline`,
+                                          ? `${router.pathname !== "/"
+                                            ? "custom_red_color"
+                                            : "custom_green_color"
+                                          } text-white`
+                                          : ` ${router.pathname !== "/"
+                                            ? ""
+                                            : "text-light"
+                                          } hover:custom_green_color hover:text-red-500 hover:underline`,
                                         "px-3 py-2 rounded-md text-sm font-medium"
                                       )}
                                       aria-current={
@@ -295,11 +288,10 @@ const Index = () => {
                                       className={classNames(
                                         item.current
                                           ? "custom_green_color text-white cursor-pointer"
-                                          : ` ${
-                                              router.pathname !== "/"
-                                                ? ""
-                                                : "text-light"
-                                            } hover:custom_green_color hover:text-red-500 hover:underline`,
+                                          : ` ${router.pathname !== "/"
+                                            ? ""
+                                            : "text-light"
+                                          } hover:custom_green_color hover:text-red-500 hover:underline`,
                                         "px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
                                       )}
                                       aria-current={
@@ -320,16 +312,14 @@ const Index = () => {
                                         }
                                         className={classNames(
                                           item.current
-                                            ? `${
-                                                router.pathname !== "/"
-                                                  ? "custom_red_color"
-                                                  : "custom_green_color"
-                                              } text-white`
-                                            : ` ${
-                                                router.pathname !== "/"
-                                                  ? ""
-                                                  : "text-light"
-                                              } hover:bg-blue-500  hover:text-white cursor-pointer`,
+                                            ? `${router.pathname !== "/"
+                                              ? "custom_red_color"
+                                              : "custom_green_color"
+                                            } text-white`
+                                            : ` ${router.pathname !== "/"
+                                              ? ""
+                                              : "text-light"
+                                            } hover:bg-blue-500  hover:text-white cursor-pointer`,
                                           "px-3 py-2 rounded-md text-sm font-medium "
                                         )}
                                         aria-current={
@@ -481,7 +471,7 @@ const Index = () => {
           <BokingTimeTow noContainer={true} />
         </div>
       )}
-      <AuthModal open={modalOpen} handleClose={handleClose} />
+      <AuthModal open={modalOpen} handleClose={handleClose} redirect={'reload'} />
     </div>
   );
 };
