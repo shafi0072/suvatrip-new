@@ -248,8 +248,6 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
                           Free Cancellation Till 14 Aug 22
                         </button> */}
                           <div className="row mt-3">
-
-
                             {items?.rooms[0]?.facelity?.map(items => <div className="">
                               <Checkmark text={items} color={"#58A020"} />
 

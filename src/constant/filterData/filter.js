@@ -6,10 +6,7 @@ export const filter_data = [
       suggestedData: [
         {
           title: "5 Star",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
+         
         },
         {
           title: "4 Star",
@@ -34,35 +31,6 @@ export const filter_data = [
       custom: true,
       suggestedData: [
        
-      ],
-    },
-  },
-  {
-    data: {
-      title: "Star Category",
-      custom: false,
-      suggestedData: [
-        {
-          title: "5 Star",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
-        {
-          title: "4 Star",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
-        {
-          title: "3 Star",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
       ],
     },
   },
@@ -131,40 +99,5 @@ export const filter_data = [
       ],
     },
   },
-  {
-    data: {
-      title: "Chains",
-      custom: false,
-      suggestedData: [
-        {
-          title: "Accor - Novotel & ibis",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
-        {
-          title: "AM Hotel Kollection",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
-        {
-          title: "Ama Stays & Trails",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
-        {
-          title: "Best Western",
-          data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
-      ],
-    },
-  },
+  
 ];
