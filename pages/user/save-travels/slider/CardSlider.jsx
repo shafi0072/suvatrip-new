@@ -86,18 +86,18 @@ const CardSlider = () => {
                 </div>
                 <a href="#">
                   <h5 className="text-xl font-semibold tracking-tight text-gray-900 mb-4">
-                    Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+                   {items?.title}
                   </h5>
                 </a>
 
-                <div className="flex items-center justify-end">
+                {/* <div className="flex items-center justify-end">
                   <a
                     href="#"
                     className="text-white bg-gray-700 custom_red_color hover:bg-red-600 hover:brightness-90   focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                   >
                     Book Now
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
