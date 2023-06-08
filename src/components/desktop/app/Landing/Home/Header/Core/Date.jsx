@@ -20,6 +20,7 @@ import {
 
 import screenSize from "@/src/components/desktop/core/lib/MediaQuery/ScreenSize";
 import moment from "moment";
+
 const Dates = ({ value, setValue, handleDateChange }) => {
   return (
     <div
@@ -37,48 +38,52 @@ const Dates = ({ value, setValue, handleDateChange }) => {
               <FormControl>
                 <TextField
                   {...startProps}
-                  label="Check-in"
+                  label="Check In Date"
                   id="check-in"
                   value={moment(value[0]?.$d).format("Do MMM YY")}
                   variant="standard"
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <CalendarTodayIcon />
+                        <CalendarTodayIcon style={{ color: "black" }} />
                       </InputAdornment>
                     ),
+                    disableUnderline: true,
+                    classes: { root: "date-input" }, // Add custom class for styling
                   }}
                   InputLabelProps={{
                     shrink: !!value[0],
                     style: {
                       fontWeight: "bold",
                       fontSize: "16px",
-                      marginLeft: "30px",
+                      textAlign: "left",
                     },
                   }}
                 />
               </FormControl>
-              <Box sx={{ mx: 4 }}> To </Box>
+              <Box sx={{ mx: 4 }}> | </Box>
               <FormControl>
                 <TextField
                   {...endProps}
-                  label="Check-out"
+                  label="Check Out Date"
                   id="check-out"
                   value={moment(value[1]?.$d).format("Do MMM YY")}
                   variant="standard"
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <CalendarTodayIcon />
+                        <CalendarTodayIcon style={{ color: "black" }} />
                       </InputAdornment>
                     ),
+                    disableUnderline: true,
+                    classes: { root: "date-input" }, // Add custom class for styling
                   }}
                   InputLabelProps={{
                     shrink: !!value[1],
                     style: {
                       fontWeight: "bold",
                       fontSize: "16px",
-                      marginLeft: "30px",
+                      textAlign: "left",
                     },
                   }}
                 />

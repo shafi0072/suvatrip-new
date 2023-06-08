@@ -60,17 +60,17 @@ const AdddGuest = ({
                 alt=""
                 className="w-12"
               />
-              <p className="ml-2 font-bold">
+              <p className="ml-2 font-bold flex items-center">
                 {adults} {adults > 1 ? "Adults" : "Adult"}{" "}
                 {children ? (
                   <span>
                     , {children > 0 && children}{" "}
-                    {children > 1 ? "Childs" : "Child"}
+                    {children > 1 ? "Children" : "Child"}
                   </span>
-                ) : (
-                  ""
-                )}{" "}
-                <br />
+                ) : null}{" "}
+                <span className="text-gray-500 text-sm text-center mx-1">
+                  |
+                </span>{" "}
                 <span className="text-gray-500 text-sm text-center">
                   {rooms} {rooms > 1 ? "Rooms" : "Room"}
                 </span>

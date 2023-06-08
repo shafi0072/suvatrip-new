@@ -86,7 +86,7 @@ const PlacesAutocomplete = ({ setSelected, setAddress, py }) => {
         disabled={!ready}
         className={`combobox-input block ml-2 ${
           py ? py : "py-4"
-        } text-sm text-gray-900  rounded-lg bg-gray-50 focus:none bookingTimeBackgroundd`}
+        } text-large text-gray-900  rounded-lg bg-gray-50 focus:none focus:outline-none bookingTimeBackgroundd placeholder:text-gray-700 placeholder:text-lg`}
         placeholder="Search an address"
         style={{
           width: "100%",

@@ -6,10 +6,11 @@ import backgroundImagesArray from "@/src/components/desktop/core/lib/backgroundI
 import { useMediaQuery } from "@mui/material";
 import screenSize from "@/src/components/desktop/core/lib/MediaQuery/ScreenSize";
 import BookingTimeThree from "./BookingTimeThree";
-import dynamic from 'next/dynamic';
-const Navbar = dynamic(() => import('@/src/components/desktop/core/shared/Navbar'));
+import dynamic from "next/dynamic";
+const Navbar = dynamic(() =>
+  import("@/src/components/desktop/core/shared/Navbar")
+);
 import BookingTimeThreeMobile from "./BookingTimeThreeMobile";
-
 
 const index = () => {
   // query Dependesis start
@@ -21,9 +22,9 @@ const index = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollValue, setScrollValue] = useState(0);
   const [backgroundImage, setBacgroundImage] = useState(
-    "https://www.jeetbrothers.com/uploaded-files/category-banner/Family-Tour-Packages119.jpg"
+    "https://himalayantrekking.com/wp-content/uploads/2017/07/dhampus-sarangkot-1-3.jpg"
   );
-  const resulation = screenSize('600px')
+  const resulation = screenSize("600px");
   // state controller start
 
   // useEffect Control Start
@@ -63,8 +64,6 @@ const index = () => {
 
   // useEffect Controll end
 
-
-
   return (
     <div className={`fade-in mb-5 ${show ? "is-visible" : ""}`}>
       <div
@@ -74,23 +73,28 @@ const index = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           // height: screenSize("600px") ? "80vh" : "70vh",
-        }}>
-
+        }}
+      >
         <Navbar />
-        <div
-          className=" d-flex align-items-center">
+        <div className=" d-flex align-items-center">
           <div className="container pb-5 mt-4">
             <div className="mb-3">
               <div className="col-md-12 text-center">
                 <h1
-                  className={`${screenSize("600px") ? "text-md mt-4" : "text-4xl mt-5"
-                    } font-bold text-light`}
+                  className={`${
+                    screenSize("600px")
+                      ? "text-xl mt-1 mb-4 font-bold"
+                      : "text-5xl mt-5 mb-10 font-black"
+                  } text-light`}
                 >
                   Traveling Made Easier
+                  <span className="block text-sm font-normal mt-4 mb-8 px-10 w-1/2 mx-auto">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quibusdam rerum blanditiis veritatis repellendus.
+                  </span>
                 </h1>
               </div>
             </div>
-
 
             <div data-aos={isScrolled ? "zoom-out" : "fade-down"}>
               {resulation ? <BookingTimeThreeMobile /> : <BookingTimeThree />}
@@ -98,7 +102,6 @@ const index = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
