@@ -456,7 +456,7 @@ const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 			<div className="d-flex justify-content-end mt-4">
 				{!spinner && (
 					<Button
-						className="btn btn-primary bg-primary"
+						className="btn btn-primary bg-primary text-white"
 						onClick={handleUpdateSubmit}
 					>
 						Update
