@@ -92,10 +92,10 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
           ?.sort((a, b) => a.bookings?.length - b?.bookings?.length)
           ?.map((items, index) => {
             const prices = items.rooms.flatMap((room) => room.priceCategory.map((category) => category.Per_Night))
-            
+
             const sortedPrices = prices.sort((a, b) => a - b);
             const discount = items.rooms.flatMap((room) => room.priceCategory.map((category) => category.discount))
-            
+
             const sorteddiscount = discount.sort((a, b) => a - b);
             return (
               <>
@@ -247,52 +247,15 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
                           {/* <button className="custom_green_color text-light px-2 py-1 rounded-full mt-3">
                           Free Cancellation Till 14 Aug 22
                         </button> */}
-                          <div className="faselity mt-3">
-                            <span className="">
-                              <DirectionsCarFilledOutlinedIcon
-                                fontSize="medium"
-                                className="text-red-500"
-                              />
-                              Parking Facility
-                            </span>
-                            <span className="ml-2">
-                              <WifiOutlinedIcon
-                                fontSize="medium"
-                                className="text-sky-500"
-                              />
-                              Free WiFI
-                            </span>
-                            <span className="ml-2">
-                              <BoltIcon
-                                fontSize="medium"
-                                className="text-yellow-500"
-                              />
-                              Geyser
-                            </span>
+                          <div className="row mt-3">
+                            {items?.rooms[0]?.facelity?.map(items => <div className="">
+                              <Checkmark text={items} color={"#58A020"} />
+
+                            </div>)
+
+                            }
                           </div>
-                          <div className="faselity mt-3">
-                            <span className="">
-                              <FitnessCenterIcon
-                                fontSize="medium"
-                                className="text-orange-500"
-                              />
-                              Gym
-                            </span>
-                            <span className="ml-2">
-                              <Diversity3OutlinedIcon
-                                fontSize="medium"
-                                className="text-sky-500"
-                              />
-                              Family Room
-                            </span>
-                            <span className="ml-2">
-                              <UnfoldMoreDoubleOutlinedIcon
-                                fontSize="medium"
-                                className="text-gray-500"
-                              />
-                              6 More
-                            </span>
-                          </div>
+                          
                         </div>
                         <div className="row mt-3">
                           {items.Amenities?.map((item, index) => (
@@ -309,7 +272,7 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
                       <div className="col-md-5 ">
                         <div className="d-flex justify-content-end">
                           <button className="btn custom_green_color mt-3 mr-1 hover:bg-sky-600 text-light ml-5">
-                          {sorteddiscount[0]}% -   {sorteddiscount[sorteddiscount?.length - 1]}% Off
+                            {sorteddiscount?.length > 1 ? `${sorteddiscount[0]}% -   ${sorteddiscount[sorteddiscount?.length - 1]}%` : `${sorteddiscount[0]}%`} Off
                           </button>
                         </div>
                         <h1 className="mt-3 text-end mr-1">
@@ -321,14 +284,14 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
                           />{" "}
                           4.8 Rating
                         </h1>
-                      
-                          <h1
-                           
-                            className="text-xl font-bold text-end mr-1 mt-3"
-                          >
-                            RS {sortedPrices[0]} -  RS {sortedPrices[sortedPrices?.length - 1]}
-                          </h1>
-                    
+
+                        <h1
+
+                          className="text-xl font-bold text-end mr-1 mt-3"
+                        >
+                          {sortedPrices?.length > 1 ? `RS ${sortedPrices[0]} -  RS ${sortedPrices[sortedPrices?.length - 1]}` : `RS ${sortedPrices[0]}`}
+                        </h1>
+
 
                         <div className="d-flex justify-content-end">
                           <button

@@ -28,7 +28,7 @@ const index = ({ hotelData, lat, lng, address, queryData }) => {
       <div className="container my-5">
         <div className="row">
           <div className={`${resulation ? "hidden" : "col-md-2 border-r"}`}>
-            <Filter setCheked={setCheked} checked={checked} />
+            <Filter  hotelData={hotelData} setCheked={setCheked} checked={checked} />
           </div>
           <div className={checked ? "col-md-4 border-r" : "col-md-10"}>
             {resulation ? (

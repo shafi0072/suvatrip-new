@@ -9,7 +9,7 @@ function valuetext(value) {
   return `${value}°C`;
 }
 const minDistance = 0;
-const Filter = ({ setCheked }) => {
+const Filter = ({ setCheked, hotelData }) => {
   const handleChange = (event) => {
     setCheked(event.target.checked);
   };
@@ -77,7 +77,7 @@ const Filter = ({ setCheked }) => {
                     </label>
                   </div>
                   <p className="text-gray-600 text-sm mr-5">
-                    ({items?.data?.length})
+                    { items?.title === "Star Category" && hotelData?.filter(item => item?.Stars === parseInt(items?.title.split(" ")[0])).length }
                   </p>
                 </li>
               ))}
