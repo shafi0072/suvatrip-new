@@ -89,8 +89,7 @@ const index = () => {
                 >
                   Traveling Made Easier
                   <span className="block text-sm font-normal mt-4 mb-8 px-10 w-1/2 mx-auto">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quibusdam rerum blanditiis veritatis repellendus.
+                  Experience unparalleled hospitality and effortless travel planning with Suvatrip, your gateway to remarkable accommodations and unforgettable journeys.
                   </span>
                 </h1>
               </div>
