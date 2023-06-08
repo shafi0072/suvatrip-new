@@ -53,7 +53,7 @@ const index = ({ hotelData, lat, lng, address, queryData }) => {
           </div>
           {checked && (
             <div className="col-md-5">
-              <Maps stores={mapsMark} centere={centere}/>
+              <Maps stores={mapsMark} centere={centere} width={"50%"} height={"100%"}/>
             </div>
           )}
         </div>

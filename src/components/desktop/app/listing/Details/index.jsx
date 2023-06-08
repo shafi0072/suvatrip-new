@@ -25,9 +25,10 @@ const index = ({ id, bookingQuery }) => {
     })
       .then((res) => res.json())
       .then((data) => setHotelDetails(data))
-      .catch((err) => {});
+      .catch((err) => { });
   }, [id, hotelDetails]);
-
+  const centere = { lat: hotelDetails?.mapUrl?.lat,
+    lng: hotelDetails?.mapUrl?.lng, }
   return (
     <div className="container">
       <div className="mt-2 custom_red_color py-3 rounded">
@@ -88,7 +89,8 @@ const index = ({ id, bookingQuery }) => {
                   lng: hotelDetails?.mapUrl?.lng,
                 },
               ]}
-              width="100%"
+              centere={centere}
+              width={"19%"} height={"32%"}
             />
           </div>
         </div>
