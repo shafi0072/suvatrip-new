@@ -35,7 +35,7 @@ const BrowseByPropertyType = () => {
                   {items.title}
                 </h1>
               </div>
-              <button className=" btn btn-secondary mx-5">Learn More</button>
+              {/* <button className=" btn btn-secondary mx-5">Learn More</button> */}
             </Item>
           </Box>
         ))}

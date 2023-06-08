@@ -42,9 +42,9 @@ const Offers = () => {
                 {items.title}
               </h1>
             </div>
-            <button className=" btn btn-secondary mx-5 absolute bottom-6">
+            {/* <button className=" btn btn-secondary mx-5 absolute bottom-6">
               Learn More
-            </button>
+            </button> */}
           </div>
         ))}
       </div>
