@@ -7,7 +7,7 @@ import screenSize from "../../lib/MediaQuery/ScreenSize";
 const Index = () => {
   const resulation = screenSize("600px");
   return (
-    <div className="bg-gray-900 py-4">
+    <div className="bg-gray-900 py-4 mt-52">
       <div className="container">
         <div className="row pt-2 pb-2">
           {!resulation && (
@@ -24,23 +24,6 @@ const Index = () => {
               sx={{ fontSize: "30px", color: "gray", marginLeft: "20px" }}
             />
             <TwitterIcon
-              sx={{ fontSize: "30px", color: "gray", marginLeft: "20px" }}
-            />
-
-            <FacebookSharpIcon
-              sx={{ fontSize: "30px", color: "gray", marginLeft: "20px" }}
-            />
-            <FacebookSharpIcon
-              sx={{ fontSize: "30px", color: "gray", marginLeft: "20px" }}
-            />
-            <InstagramIcon
-              sx={{ fontSize: "30px", color: "gray", marginLeft: "20px" }}
-            />
-            <TwitterIcon
-              sx={{ fontSize: "30px", color: "gray", marginLeft: "20px" }}
-            />
-
-            <FacebookSharpIcon
               sx={{ fontSize: "30px", color: "gray", marginLeft: "20px" }}
             />
           </div>
