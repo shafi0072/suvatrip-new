@@ -32,16 +32,16 @@ export const body_array = [
       "https://www.annapurnaview.com/uploads/original/01-VOcBJeaP4fpY87SXwJ332UxjaxGeDmBt6QoZ2dwZ.jpg",
     span: "8",
   },
-  {
-    title: "Nagarkot",
-    image:
-      "https://kailashjourneys.com/wp-content/uploads/2019/04/Nagarkot-Valley.jpg",
-    span: "8",
-  },
-  {
-    title: "Bandipur",
-    image:
-      "https://admin.ntb.gov.np/image-cache/1-1631092796.jpg?p=main&s=627f47c678576a3d2dca39e3d1341bbb",
-    span: "8",
-  },
+  // {
+  //   title: "Nagarkot",
+  //   image:
+  //     "https://kailashjourneys.com/wp-content/uploads/2019/04/Nagarkot-Valley.jpg",
+  //   span: "8",
+  // },
+  // {
+  //   title: "Bandipur",
+  //   image:
+  //     "https://admin.ntb.gov.np/image-cache/1-1631092796.jpg?p=main&s=627f47c678576a3d2dca39e3d1341bbb",
+  //   span: "8",
+  // },
 ];
