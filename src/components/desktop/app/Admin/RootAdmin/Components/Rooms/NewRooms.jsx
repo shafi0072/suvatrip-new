@@ -28,6 +28,7 @@ const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 	const [spinner, setSpinner] = useState(false);
 	const [roomData, setRoomsData] = useState({
 		roomTypes: '',
+		standardName: '',
 		roomName: '',
 		smockPolicy: '',
 		numberOfRooms: '',
@@ -125,6 +126,7 @@ const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 								body: JSON.stringify({
 									rooms: {
 										roomTypes: roomData?.roomTypes,
+										standardName: roomData?.standardName,
 										roomName: roomData?.roomName,
 										smockPolicy: roomData?.smockPolicy,
 										numberOfRooms: roomData?.numberOfRooms,
@@ -217,8 +219,6 @@ const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 								}
 								<MenuItem value={"custom"}>Custom</MenuItem>
 
-								{/* <MenuItem value={'20'}>Twenty</MenuItem>
-									<MenuItem value={'30'}>Thirty</MenuItem> */}
 							</Select>
 						</FormControl>
 					</div>
