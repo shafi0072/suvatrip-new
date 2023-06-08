@@ -52,6 +52,9 @@ const AuthContent = ({ setUserInfo, userInfo, children }) => {
       .fetch(
         `*[_type == "rooms"]{
       _id,
+      standardName[]{
+        title
+      },
       name[]{
         title
       },

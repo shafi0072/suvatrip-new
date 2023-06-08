@@ -22,7 +22,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 
-	const {name, smocking, types, numberOfRooms, language} = rooomsData[0]
+	const { name, smocking, types, numberOfRooms, language } = rooomsData[0]
 	const [isFacility, setIsFacility] = useState(false);
 	const [isPrice, setIsPrice] = useState(false);
 	const [spinner, setSpinner] = useState(false);
@@ -69,7 +69,7 @@ const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 						'Opps',
 						'Image dimantion must need to be 500 x 400',
 						'error'
-					).then(() => {});
+					).then(() => { });
 				}
 				// do something with the image dimensions
 			};
@@ -191,9 +191,37 @@ const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 	console.log({ timeData, schedulePrice, scheduleDiscount });
 	return (
 		<>
+
 			<div className="row">
 				<h1 className="text-dark font-bold text-md">Add Your Rooms</h1>
 				<div className="col-md-4 mt-4">
+					<div className="col-md-6">
+						<label htmlFor="" className="text-md font-bold">
+							Standard name
+						</label>
+						<FormControl fullWidth className="mt-2 rounded-4">
+							<InputLabel id="demo-simple-select-label">
+								Standard name
+							</InputLabel>
+							<Select
+								labelId="demo-simple-select-label"
+								id="demo-simple-select"
+								// value={age}
+								name="standardName"
+								onChange={handlePropertyOnChange}
+								label="Standard name"
+							// onChange={handleChange}
+							>
+								{
+									name?.map(items => <MenuItem value={items?.title}>{items?.title}</MenuItem>)
+								}
+								<MenuItem value={"custom"}>Custom</MenuItem>
+
+								{/* <MenuItem value={'20'}>Twenty</MenuItem>
+									<MenuItem value={'30'}>Thirty</MenuItem> */}
+							</Select>
+						</FormControl>
+					</div>
 					<div className="mt-3">
 						<label htmlFor="" className="text-md font-bold">
 							Room Name
@@ -222,12 +250,12 @@ const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 									name="roomTypes"
 									onChange={handlePropertyOnChange}
 									label="Rooms types"
-									// onChange={handleChange}
+								// onChange={handleChange}
 								>
-								{
-									types?.map(items => <MenuItem value={items?.title}>{items?.title}</MenuItem>)
-								}
-									
+									{
+										types?.map(items => <MenuItem value={items?.title}>{items?.title}</MenuItem>)
+									}
+
 									{/* <MenuItem value={'20'}>Twenty</MenuItem>
 									<MenuItem value={'30'}>Thirty</MenuItem> */}
 								</Select>
@@ -246,9 +274,9 @@ const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 									id="demo-simple-select"
 									// value={age}
 									label="Smocking Policy"
-									// onChange={handleChange}
+								// onChange={handleChange}
 								>
-									{smocking?.map(items =><MenuItem value={items?.title}>{items?.title}</MenuItem>)}
+									{smocking?.map(items => <MenuItem value={items?.title}>{items?.title}</MenuItem>)}
 
 									{/* <MenuItem value={20}>Twenty</MenuItem>
 									<MenuItem value={30}>Thirty</MenuItem> */}
@@ -272,7 +300,7 @@ const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 									label="Numbers of Rooms"
 									name="numberOfRooms"
 									onChange={handlePropertyOnChange}
-									// onChange={handleChange}
+								// onChange={handleChange}
 								>
 									{numberOfRooms?.map(items => <MenuItem value={items?.title}>{items?.title}</MenuItem>)}
 									{/* <MenuItem value={'20'}>Twenty</MenuItem>
@@ -293,7 +321,7 @@ const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 									label="Room Size"
 									name="roomSize"
 									onChange={handlePropertyOnChange}
-									// onChange={handleChange}
+								// onChange={handleChange}
 								>
 									<MenuItem value={'10'}>Ten</MenuItem>
 									<MenuItem value={'20'}>Twenty</MenuItem>
@@ -318,9 +346,9 @@ const NewRooms = ({ hotelInfo, setIsNewRoom, rooomsData }) => {
 									label="language"
 									name="language"
 									onChange={handlePropertyOnChange}
-									// onChange={handleChange}
+								// onChange={handleChange}
 								>
-									{language?.map(items =><MenuItem value={items?.title}>{items?.title}</MenuItem>)}
+									{language?.map(items => <MenuItem value={items?.title}>{items?.title}</MenuItem>)}
 									{/* <MenuItem value={'english'}>English</MenuItem>
 									<MenuItem value={'hindi'}>Hindi</MenuItem> */}
 								</Select>
