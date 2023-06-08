@@ -40,19 +40,18 @@ const AdddGuest = ({
   };
 
   return (
-    <div className={`${resulation ? "col-md-6" : "col-md-6 mt-3"}`}>
-      <div className="-mt-4" style={{ width: "100%" }}>
+    <div className={`w-full bg-white ${resulation ? "col-md-6" : "w-full"}`}>
+      <div>
         <div className="">
-          <div className="row py-1 bookingTimeBackgroundd  rounded-2">
+          <div className="ml-2 row py-1 bookingTimeBackgroundd  rounded-2 mr-2 -my-1.5">
             <button
               id="basic-button"
               aria-controls={open ? "basic-menu" : undefined}
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
-              className={`text-start d-flex align-items-center px-3 py-1 ${
-                screenSize("600px") ? "text-sm text-center" : ""
-              }`}
+              className={`w-full text-left d-flex items-center px-3 py-1 -ml-4 ${screenSize("600px") ? "text-sm text-center" : ""
+                }`}
             >
               {" "}
               <img
@@ -60,7 +59,7 @@ const AdddGuest = ({
                 alt=""
                 className="w-12"
               />
-              <p className="ml-2 font-bold flex items-center">
+              <p className="ml-2 font-bold flex items-center mt-2">
                 {adults} {adults > 1 ? "Adults" : "Adult"}{" "}
                 {children ? (
                   <span>
@@ -156,7 +155,7 @@ const AdddGuest = ({
                 <div className="d-flex justify-content-evenly align-items-center">
                   <div className="d-flex justify-content-evenly align-items-center">
                     <button
-                      className="text-smtext-center outline  outline-1 outline-offset-2 outline-sky-500 hover:bg-sky-600 text-sky-500  hover:text-gray-100  rounded-full"
+                      className="text-sm text-center outline  outline-1 outline-offset-2 outline-sky-500 hover:bg-sky-600 text-sky-500  hover:text-gray-100  rounded-full"
                       onClick={() => {
                         children > 0
                           ? setChildren(children - 1)
@@ -168,7 +167,7 @@ const AdddGuest = ({
                         <RemoveIcon fontSize="small" />
                       </span>
                     </button>
-                    <div className="mx-2 "> {children} </div>
+                    <div className="mx-2">{children}</div>
                     <button
                       className="text-smtext-center outline  outline-1 outline-offset-2 outline-sky-500 hover:bg-sky-600 text-sky-500  hover:text-gray-100  rounded-full"
                       onClick={() => {
@@ -241,7 +240,7 @@ const AdddGuest = ({
           </Menu>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

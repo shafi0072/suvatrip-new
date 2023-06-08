@@ -45,7 +45,7 @@ const RightSiedeMedium = ({ checked, hotelData, lat, lng }) => {
       <div className="d-flex justify-content-start">
         <div className={resulationMd ? "listRithTopMid" : "listRithTop"}>
           <h1 className="text2xl font-bold uppercase mb-2">
-            {lat}: {hotelData?.length} place Founded
+            {lat}: {hotelData?.length} Results found
           </h1>
           <BookingTwo noContainer={true} bg={"custom_red_color"} />
           <div className="d-flex mt-3">

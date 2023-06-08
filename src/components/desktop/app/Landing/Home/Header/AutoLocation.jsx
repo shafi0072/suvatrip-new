@@ -74,25 +74,27 @@ const PlacesAutocomplete = ({ setSelected, setAddress, py }) => {
   };
 
   return (
-    <Combobox onSelect={handleSelect} className="d-flex align-items-center">
+    <Combobox onSelect={handleSelect} className="flex flex-row justify-start items-center w-full -ml-4 mr-16">
       <img
         src="/images/18-location-pin-outline (1).gif"
         alt=""
-        className="w-10"
+        className="w-8 h-auto"
       />
       <ComboboxInput
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={!ready}
-        className={`combobox-input block ml-2 ${
-          py ? py : "py-4"
-        } text-large text-gray-900  rounded-lg bg-gray-50 focus:none focus:outline-none bookingTimeBackgroundd placeholder:text-gray-700 placeholder:text-lg`}
-        placeholder="Search an address"
+        className={`z-50 overflow-visible w-full block ml-4 pt-2  ${py ? py : "py-2"
+          } text-large text-gray-900 rounded-lg bg-gray-50 focus:none focus:outline-none bookingTimeBackgroundd placeholder:text-gray-700 placeholder:text-lg leading-none`}
+        placeholder="Search for hotels..."
         style={{
           width: "100%",
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
           background: "rgba(255, 255, 255, 0%)",
-          marginRight: "-10px",
-          padding: "25px",
+          marginRight: "0px",
+          padding: "0px",
           border: "none",
         }}
       />
@@ -107,7 +109,7 @@ const PlacesAutocomplete = ({ setSelected, setAddress, py }) => {
                 <img
                   src="/images/18-location-pin-outline (1).gif"
                   alt=""
-                  className="w-10"
+                  className="w-6 h-auto"
                 />
                 <ComboboxOption value={description} />
               </div>

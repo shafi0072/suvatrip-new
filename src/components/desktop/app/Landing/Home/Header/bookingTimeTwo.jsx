@@ -66,9 +66,8 @@ const bookingTimeTwo = ({ noContainer, bg }) => {
               <div className="col-md-4">
                 <div className="pl-2">
                   <div
-                    className={`appearance-none w-full h-16 block bg-gray-100 text-gray-700 border-x-2 border-gray-300 rounded py-2 ${
-                      resulation ? "" : "d-flex justify-content-evenly"
-                    } align-items-center mb-3 leading-tight focus:outline-none focus:bg-white`}
+                    className={`appearance-none w-full h-16 block bg-gray-100 text-gray-700 border-x-2 border-gray-300 rounded py-2 ${resulation ? "" : "d-flex justify-content-evenly"
+                      } align-items-center mb-3 leading-tight focus:outline-none focus:bg-white`}
                     id="grid-first-name"
                     type="submit"
                   >
@@ -84,9 +83,8 @@ const bookingTimeTwo = ({ noContainer, bg }) => {
               <div className="col-md-4">
                 <div className="pl-2 w-full">
                   <div
-                    className={`appearance-none w-full block h-16 bg-gray-100 text-gray-700 border-x-2 border-gray-300 rounded py-3 ${
-                      resulation ? "" : "d-flex justify-content-evenly"
-                    } align-items-center mb-3 leading-tight focus:outline-none focus:bg-white`}
+                    className={`appearance-none w-full block h-16 bg-gray-100 text-gray-700 border-x-2 border-gray-300 rounded py-3 ${resulation ? "" : "d-flex justify-content-evenly"
+                      } align-items-center mb-3 leading-tight focus:outline-none focus:bg-white`}
                     style={{
                       fontSize: dateSelected ? "12px" : "16px",
                       height: dateSelected ? "55%" : "",
@@ -104,9 +102,8 @@ const bookingTimeTwo = ({ noContainer, bg }) => {
               <div className="col-md-4">
                 <div className="pl-2">
                   <div
-                    className={`appearance-none w-full block h-16 bg-gray-100 text-gray-700 border-x-2 border-gray-300 rounded py-3 ${
-                      resulation ? "" : "d-flex justify-content-evenly"
-                    } align-items-center mb-3 leading-tight focus:outline-none focus:bg-white`}
+                    className={`appearance-none w-full block h-16 bg-gray-100 text-gray-700 border-x-2 border-gray-300 rounded py-3 ${resulation ? "" : "d-flex justify-content-evenly"
+                      } align-items-center mb-3 leading-tight focus:outline-none focus:bg-white`}
                     value={"+Add Guests"}
                   >
                     <AdddGuest

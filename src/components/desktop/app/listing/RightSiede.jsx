@@ -58,7 +58,7 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
       {!checked && <div className="d-flex justify-content-start">
         <div className={resulationMd ? "listRithTopMid" : "listRithTop"}>
           <h1 className="text2xl font-bold uppercase mb-2">
-            {address}: {hotelData?.length} place Founded
+            {address}: {hotelData?.length} Results found
           </h1>
           <BookingTwo noContainer={true} bg={"custom_red_color"} />
           {/* <div>
@@ -255,7 +255,7 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
 
                             }
                           </div>
-                          
+
                         </div>
                         <div className="row mt-3">
                           {items.Amenities?.map((item, index) => (

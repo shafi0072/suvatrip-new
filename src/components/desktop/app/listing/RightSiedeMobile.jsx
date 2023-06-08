@@ -45,7 +45,7 @@ const RightSiedeMobile = ({ checked, hotelData, lat, lng }) => {
       <div className="d-flex justify-content-start">
         <div className={resulationMd ? "listRithTopMid" : "listRithTop"}>
           <h1 className="text2xl font-bold uppercase mb-2">
-            {searchId}: {hotelData?.length} place Founded
+            {searchId}: {hotelData?.length} Results Found
           </h1>
           <BookingTwo noContainer={true} bg={"custom_red_color"} />
           <div className="d-flex mt-3">

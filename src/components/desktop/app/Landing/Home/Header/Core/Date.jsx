@@ -24,15 +24,15 @@ import moment from "moment";
 const Dates = ({ value, setValue, handleDateChange }) => {
   return (
     <div
-      className={`row px-2 my-3 w-full py-2 bookingTimeBackgroundd rounded-2 ${
-        screenSize("600px") ? "d-flex text-sm text-center" : ""
-      }`}
+      className={`row px-2 my-1 w-full h-full pb-14 bookingTimeBackgroundd rounded-2 ${screenSize("600px") ? "d-flex text-sm text-center" : ""
+        }`}
     >
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateRangePicker
           value={value}
           localeText={{ start: "Check-in", end: "Check-out" }}
           onChange={handleDateChange}
+          className="mb-12"
           renderInput={(startProps, endProps) => (
             <React.Fragment>
               <FormControl>
@@ -45,7 +45,7 @@ const Dates = ({ value, setValue, handleDateChange }) => {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <CalendarTodayIcon style={{ color: "black" }} />
+                        <CalendarTodayIcon style={{ color: "black", height: '16px', marginLeft: '-12px', marginBottom: '2px' }} />
                       </InputAdornment>
                     ),
                     disableUnderline: true,
@@ -57,11 +57,13 @@ const Dates = ({ value, setValue, handleDateChange }) => {
                       fontWeight: "bold",
                       fontSize: "16px",
                       textAlign: "left",
+                      marginLeft: '16px',
+                      marginRight: '0px'
                     },
                   }}
                 />
               </FormControl>
-              <Box sx={{ mx: 4 }}> | </Box>
+              <Box sx={{ mr: 2 }}> | </Box>
               <FormControl>
                 <TextField
                   {...endProps}
@@ -72,7 +74,7 @@ const Dates = ({ value, setValue, handleDateChange }) => {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <CalendarTodayIcon style={{ color: "black" }} />
+                        <CalendarTodayIcon style={{ color: "black", marginLeft: '-12px', height: '16px', marginBottom: '2px' }} />
                       </InputAdornment>
                     ),
                     disableUnderline: true,
@@ -84,6 +86,7 @@ const Dates = ({ value, setValue, handleDateChange }) => {
                       fontWeight: "bold",
                       fontSize: "16px",
                       textAlign: "left",
+                      marginLeft: '16px'
                     },
                   }}
                 />
