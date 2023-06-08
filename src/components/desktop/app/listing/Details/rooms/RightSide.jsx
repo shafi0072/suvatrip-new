@@ -144,7 +144,7 @@ const RightSide = ({ item, hotelDetails, roomDetails, bookingQuery }) => {
           </div>
           <p className="text-sm">
             maximum capacity for{" "}
-            <span className="font-bold">${item?.sleep}</span> peoples{" "}
+            <span className="font-bold"> {item?.sleep}</span> peoples{" "}
           </p>
         </div>
         <div className="col-md-3">

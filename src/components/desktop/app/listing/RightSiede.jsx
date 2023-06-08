@@ -90,261 +90,274 @@ const RightSiede = ({ checked, hotelData, lat, lng, address, queryData }) => {
       {!checked && hotelData?.length > 0 ? (
         hotelData
           ?.sort((a, b) => a.bookings?.length - b?.bookings?.length)
-          ?.map((items, index) => (
-            <>
-              <div className="d-flex justify-content-start">
-                <div
-                  className={
-                    resulationMd
-                      ? "shadow-lg mt-4 hoverPanelMid relative d-flex border border-gray-200 rounded-2"
-                      : "mt-4 hoverPanel shadow-lg relative d-flex border border-gray-200 rounded-2"
-                  }
-                >
+          ?.map((items, index) => {
+            const prices = items.rooms.flatMap((room) => room.priceCategory.map((category) => category.Per_Night))
+            
+            const sortedPrices = prices.sort((a, b) => a - b);
+            const discount = items.rooms.flatMap((room) => room.priceCategory.map((category) => category.discount))
+            
+            const sorteddiscount = discount.sort((a, b) => a - b);
+            return (
+              <>
+                <div className="d-flex justify-content-start">
                   <div
-                    className="relative p-2 w-80 border-r"
-                    onClick={() => handleOpen(index, items?.images)}
-                  >
-                    <img
-                      src={items?.images[0]}
-                      alt=""
-                      style={{
-                        maxWidth: "400px",
-                        height: "140px",
-                        objectFit: "cover",
-                        width: "100%",
-                      }}
-                      className={`${blur ? "blur-lg rounded-2" : "rounded-2"}`}
-                    />{" "}
-                    {
-                      <div
-                        className="bg-sky-600 absolute top-2 px-3 py-1"
-                        style={{
-                          borderBottomRightRadius: "10px",
-                        }}
-                      >
-                        <h1 className=" font-bold text-light">
-                          Breakfast Included
-                        </h1>
-                      </div>
+                    className={
+                      resulationMd
+                        ? "shadow-lg mt-4 hoverPanelMid relative d-flex border border-gray-200 rounded-2"
+                        : "mt-4 hoverPanel shadow-lg relative d-flex border border-gray-200 rounded-2"
                     }
-                    {items?.images?.length > 1 && (
-                      <div
-                        className="ml-1 d-flex mt-3 border-t-2 pt-2"
+                  >
+                    <div
+                      className="relative p-2 w-80 border-r"
+                      onClick={() => handleOpen(index, items?.images)}
+                    >
+                      <img
+                        src={items?.images[0]}
+                        alt=""
                         style={{
+                          maxWidth: "400px",
+                          height: "140px",
+                          objectFit: "cover",
                           width: "100%",
-                          height: "45px",
-                          padding: "0px",
-                          margin: "0px",
                         }}
-                      >
-                        {items?.images[1] && (
-                          <img
-                            src={items?.images[1]}
-                            alt=""
-                            style={{
-                              width: "100%",
-                              height: "40px",
-                            }}
-                            className="rounded-2 "
-                          />
-                        )}
-                        {items?.images[2] && (
-                          <img
-                            src={items?.images[2]}
-                            alt=""
-                            style={{
-                              width: "100%",
-                              height: "40px",
-                            }}
-                            className="rounded-2 rounded-2 ml-2 "
-                          />
-                        )}
-                        <>
-                          {items?.images?.length <= 3 ? (
+                        className={`${blur ? "blur-lg rounded-2" : "rounded-2"}`}
+                      />{" "}
+                      {
+                        <div
+                          className="bg-sky-600 absolute top-2 px-3 py-1"
+                          style={{
+                            borderBottomRightRadius: "10px",
+                          }}
+                        >
+                          <h1 className=" font-bold text-light">
+                            Breakfast Included
+                          </h1>
+                        </div>
+                      }
+                      {items?.images?.length > 1 && (
+                        <div
+                          className="ml-1 d-flex mt-3 border-t-2 pt-2"
+                          style={{
+                            width: "100%",
+                            height: "45px",
+                            padding: "0px",
+                            margin: "0px",
+                          }}
+                        >
+                          {items?.images[1] && (
                             <img
-                              src={items?.images[3]}
+                              src={items?.images[1]}
                               alt=""
-                              style={{ width: "100%", height: "40px" }}
-                              className="rounded-2 ml-2"
-                            />
-                          ) : (
-                            <div
-                              className="rounded-2 ml-2 d-flex align-items-center justify-content-center"
                               style={{
                                 width: "100%",
                                 height: "40px",
-                                backgroundImage: `linear-gradient(rgb(0 0 0 / 49%), rgb(0 0 0 / 69%)), url(${items?.images[0]})`,
-                                backgroundSize: "cover",
-                                backgroundRepeat: "no-repeat",
-                                backgroundPosition: "center center",
                               }}
-                            >
-                              <h1 className="text-center my-auto text-light font-bold">
-                                See all
-                              </h1>
-                            </div>
+                              className="rounded-2 "
+                            />
                           )}
-                        </>
-                      </div>
-                    )}
-                  </div>
-                  <div
-                    className="row  "
-                    onClick={(e) => {
-                      e.preventDefault();
-                      router.push({
-                        pathname: `/hotelList/HotelDetails/${items._id}`,
-                        query: {
-                          adults: queryData?.adults,
-                          rooms: queryData?.rooms,
-                          children: queryData?.children,
-                          age: queryData?.age,
-                          checkIn: queryData?.checkIn,
-                          checkOut: queryData?.checkOut,
-                        },
-                      });
-                    }}
-                    style={{ width: "100%" }}
-                  >
-                    <div className="col-md-6  my-3 mx-4 ">
-                      <div className="">
-                        <h1 className="text-xl font-bold uppercase">
-                          {items?.NameOfProperty}
-                        </h1>
-                        <div className="d-flex align-items-center ">
-                          {Array.from(
-                            {
-                              length: 3,
-                            },
-                            (_, index) => (
-                              <StarRateIcon
-                                sx={{
-                                  fontSize: "20px",
-                                  color: "goldenrod",
-                                }}
+                          {items?.images[2] && (
+                            <img
+                              src={items?.images[2]}
+                              alt=""
+                              style={{
+                                width: "100%",
+                                height: "40px",
+                              }}
+                              className="rounded-2 rounded-2 ml-2 "
+                            />
+                          )}
+                          <>
+                            {items?.images?.length <= 3 ? (
+                              <img
+                                src={items?.images[3]}
+                                alt=""
+                                style={{ width: "100%", height: "40px" }}
+                                className="rounded-2 ml-2"
                               />
-                            )
-                          )}
-                          <span className=" hover:text-blue-800 text-center cursor-pointer">
-                            <LocationOnIcon className="ml-3  text-blue-800" />{" "}
-                            <span className="text-blue-800 hover:border-blue-800 hover:border-b ">
-                              {items?.City}, {items?.Country}
-                            </span>
-                          </span>
-                          {items?.fetured && (
-                            <span className="mx-3 px-3  bg-primary text-light rounded-full">
-                              Featured
-                            </span>
-                          )}
+                            ) : (
+                              <div
+                                className="rounded-2 ml-2 d-flex align-items-center justify-content-center"
+                                style={{
+                                  width: "100%",
+                                  height: "40px",
+                                  backgroundImage: `linear-gradient(rgb(0 0 0 / 49%), rgb(0 0 0 / 69%)), url(${items?.images[0]})`,
+                                  backgroundSize: "cover",
+                                  backgroundRepeat: "no-repeat",
+                                  backgroundPosition: "center center",
+                                }}
+                              >
+                                <h1 className="text-center my-auto text-light font-bold">
+                                  See all
+                                </h1>
+                              </div>
+                            )}
+                          </>
                         </div>
-                        {/* <button className="custom_green_color text-light px-2 py-1 rounded-full mt-3">
+                      )}
+                    </div>
+                    <div
+                      className="row  "
+                      onClick={(e) => {
+                        e.preventDefault();
+                        router.push({
+                          pathname: `/hotelList/HotelDetails/${items._id}`,
+                          query: {
+                            adults: queryData?.adults,
+                            rooms: queryData?.rooms,
+                            children: queryData?.children,
+                            age: queryData?.age,
+                            checkIn: queryData?.checkIn,
+                            checkOut: queryData?.checkOut,
+                          },
+                        });
+                      }}
+                      style={{ width: "100%" }}
+                    >
+                      <div className="col-md-6  my-3 mx-4 ">
+                        <div className="">
+                          <h1 className="text-xl font-bold uppercase">
+                            {items?.NameOfProperty}
+                          </h1>
+                          <div className="d-flex align-items-center ">
+                            {Array.from(
+                              {
+                                length: 3,
+                              },
+                              (_, index) => (
+                                <StarRateIcon
+                                  sx={{
+                                    fontSize: "20px",
+                                    color: "goldenrod",
+                                  }}
+                                />
+                              )
+                            )}
+                            <span className=" hover:text-blue-800 text-center cursor-pointer">
+                              <LocationOnIcon className="ml-3  text-blue-800" />{" "}
+                              <span className="text-blue-800 hover:border-blue-800 hover:border-b ">
+                                {items?.City}, {items?.Country}
+                              </span>
+                            </span>
+                            {items?.fetured && (
+                              <span className="mx-3 px-3  bg-primary text-light rounded-full">
+                                Featured
+                              </span>
+                            )}
+                          </div>
+                          {/* <button className="custom_green_color text-light px-2 py-1 rounded-full mt-3">
                           Free Cancellation Till 14 Aug 22
                         </button> */}
-                        <div className="faselity mt-3">
-                          <span className="">
-                            <DirectionsCarFilledOutlinedIcon
-                              fontSize="medium"
-                              className="text-red-500"
-                            />
-                            Parking Facility
-                          </span>
-                          <span className="ml-2">
-                            <WifiOutlinedIcon
-                              fontSize="medium"
-                              className="text-sky-500"
-                            />
-                            Free WiFI
-                          </span>
-                          <span className="ml-2">
-                            <BoltIcon
-                              fontSize="medium"
-                              className="text-yellow-500"
-                            />
-                            Geyser
-                          </span>
-                        </div>
-                        <div className="faselity mt-3">
-                          <span className="">
-                            <FitnessCenterIcon
-                              fontSize="medium"
-                              className="text-orange-500"
-                            />
-                            Gym
-                          </span>
-                          <span className="ml-2">
-                            <Diversity3OutlinedIcon
-                              fontSize="medium"
-                              className="text-sky-500"
-                            />
-                            Family Room
-                          </span>
-                          <span className="ml-2">
-                            <UnfoldMoreDoubleOutlinedIcon
-                              fontSize="medium"
-                              className="text-gray-500"
-                            />
-                            6 More
-                          </span>
-                        </div>
-                      </div>
-                      <div className="row mt-3">
-                        {items.Amenities?.map((item, index) => (
-                          <div className="col-md-6 mt-2">
-                            <Checkmark
-                              text={item}
-                              className="ml-2"
-                              color="green"
-                            />
+                          <div className="faselity mt-3">
+                            <span className="">
+                              <DirectionsCarFilledOutlinedIcon
+                                fontSize="medium"
+                                className="text-red-500"
+                              />
+                              Parking Facility
+                            </span>
+                            <span className="ml-2">
+                              <WifiOutlinedIcon
+                                fontSize="medium"
+                                className="text-sky-500"
+                              />
+                              Free WiFI
+                            </span>
+                            <span className="ml-2">
+                              <BoltIcon
+                                fontSize="medium"
+                                className="text-yellow-500"
+                              />
+                              Geyser
+                            </span>
                           </div>
-                        ))}
+                          <div className="faselity mt-3">
+                            <span className="">
+                              <FitnessCenterIcon
+                                fontSize="medium"
+                                className="text-orange-500"
+                              />
+                              Gym
+                            </span>
+                            <span className="ml-2">
+                              <Diversity3OutlinedIcon
+                                fontSize="medium"
+                                className="text-sky-500"
+                              />
+                              Family Room
+                            </span>
+                            <span className="ml-2">
+                              <UnfoldMoreDoubleOutlinedIcon
+                                fontSize="medium"
+                                className="text-gray-500"
+                              />
+                              6 More
+                            </span>
+                          </div>
+                        </div>
+                        <div className="row mt-3">
+                          {items.Amenities?.map((item, index) => (
+                            <div className="col-md-6 mt-2">
+                              <Checkmark
+                                text={item}
+                                className="ml-2"
+                                color="green"
+                              />
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-md-5 ">
-                      <div className="d-flex justify-content-end">
-                        <button className="btn bg-sky-500 mt-3 mr-1 hover:bg-sky-600 text-light ml-5">
-                          79% off{" "}
-                        </button>
-                      </div>
-                      <h1 className="mt-3 text-end mr-1">
-                        <StarRateIcon
-                          fontSize="small"
-                          sx={{
-                            color: "goldenrod",
-                          }}
-                        />{" "}
-                        4.8 Rating
-                      </h1>
-                      <h1 className="text-xl  font-bold text-end mr-1 mt-3">
-                        RS 168
-                      </h1>
+                      <div className="col-md-5 ">
+                        <div className="d-flex justify-content-end">
+                          <button className="btn custom_green_color mt-3 mr-1 hover:bg-sky-600 text-light ml-5">
+                          {sorteddiscount[0]}% -   {sorteddiscount[sorteddiscount?.length - 1]}% Off
+                          </button>
+                        </div>
+                        <h1 className="mt-3 text-end mr-1">
+                          <StarRateIcon
+                            fontSize="small"
+                            sx={{
+                              color: "goldenrod",
+                            }}
+                          />{" "}
+                          4.8 Rating
+                        </h1>
+                      
+                          <h1
+                           
+                            className="text-xl font-bold text-end mr-1 mt-3"
+                          >
+                            RS {sortedPrices[0]} -  RS {sortedPrices[sortedPrices?.length - 1]}
+                          </h1>
+                    
 
-                      <div className="d-flex justify-content-end">
-                        <button
-                          className="btn  custom_red_color  text-light mt-3 hover:bg-gray-700"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            router.push({
-                              pathname: `/hotelList/HotelDetails/${items._id}`,
-                              query: {
-                                adults: queryData?.adults,
-                                rooms: queryData?.rooms,
-                                children: queryData?.children,
-                                age: queryData?.age,
-                                checkIn: queryData?.checkIn,
-                                checkOut: queryData?.checkOut,
-                              },
-                            });
-                          }}
-                        >
-                          View Details
-                        </button>
+                        <div className="d-flex justify-content-end">
+                          <button
+                            className="btn  custom_red_color  text-light mt-3 hover:bg-gray-700"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              router.push({
+                                pathname: `/hotelList/HotelDetails/${items._id}`,
+                                query: {
+                                  adults: queryData?.adults,
+                                  rooms: queryData?.rooms,
+                                  children: queryData?.children,
+                                  age: queryData?.age,
+                                  checkIn: queryData?.checkIn,
+                                  checkOut: queryData?.checkOut,
+                                },
+                              });
+                            }}
+                          >
+                            View Deals
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </>
-          ))
+              </>
+            )
+          })
       ) : checked && hotelData?.length > 0 ? (hotelData
         ?.sort((a, b) => a.bookings?.length - b?.bookings?.length)
         ?.map((items, index) => (

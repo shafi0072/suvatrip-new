@@ -1,34 +1,26 @@
 export const filter_data = [
   {
     data: {
-      title: "Suggested For You",
+      title: "Star Category",
+      custom: false,
       suggestedData: [
         {
-          title: "5 Star Properties",
+          title: "5 Star",
           data: [
             { name: "1", age: "" },
             { name: "1", age: "" },
           ],
         },
         {
-          title: "North Goa",
+          title: "4 Star",
           data: [
             { name: "1", age: "" },
             { name: "1", age: "" },
           ],
         },
         {
-          title: "Resorts",
+          title: "3 Star",
           data: [
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-            { name: "1", age: "" },
-          ],
-        },
-        {
-          title: "Beachfront Properties",
-          data: [
-            { name: "1", age: "" },
             { name: "1", age: "" },
             { name: "1", age: "" },
           ],

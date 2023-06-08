@@ -81,7 +81,7 @@ const index = ({ hotelInfo, handleOnClose, redirect }) => {
           ).then(() => {
             redirect === "reload"
               ? window.location.reload()
-              : window.location.assign("/");
+              : window.location.assign(redirect);
           });
         } else {
           handleOnClose();
